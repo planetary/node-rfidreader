@@ -1,0 +1,20 @@
+{
+  "name": "rfidreader",
+  "version": "1.0.0",
+  "description": "read RFID tags from the serial port",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RFID",
+    "Adafruit"
+  ],
+  "author": "Jeff Crouse <jeff@seethroughlab.com> (http://www.jeffish.com)",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.4.2",
+    "request": "^2.63.0",
+    "serialport": "^1.7.4"
+  }
+}
