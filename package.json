@@ -1,6 +1,6 @@
 {
   "name": "rfidreader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "read RFID tags from the serial port",
   "main": "index.js",
   "private": true,

@@ -125,6 +125,7 @@ var RFIDReader = function(options) {
 				var user = null;
 				try {
 					user = JSON.parse(body);
+					user.tokenType = tokenType;
 				} catch(e) {
 					self.emit("error", "bad JSON response from master");
 					return console.error(e);
