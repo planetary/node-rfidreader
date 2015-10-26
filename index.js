@@ -110,11 +110,12 @@ var RFIDReader = function(options) {
 			var tokenType = match[2];
 			var options = {
 				url: 'http://master.local:5000/user',
-				qs: {tokenID: tokenID}
+				qs: {tokenID: tokenID},
+				timeout: 1000
 			};
 			request(options, function (error, response, body) {
 				if(error) {
-					self.emit("error", "Can't reach master")
+					self.emit("error", "Can't reach master");
 					return console.error(error);
 				}
 				if(response.statusCode != 200) {
@@ -122,16 +123,17 @@ var RFIDReader = function(options) {
 					return console.error(response.statusCode, body);
 				}
 
-				var user = null;
 				try {
-					user = JSON.parse(body);
-					user.tokenType = tokenType;
+					var json = JSON.parse(body);
+					if(json.error) {
+						self.emit("error", json.error);
+					} else {
+						self.emit("user", json);
+					}
 				} catch(e) {
 					self.emit("error", "bad JSON response from master");
 					return console.error(e);
 				}
-
-				self.emit("user", user);
 			});
 		} else {
 			console.warn("unrecognized input from reader")
