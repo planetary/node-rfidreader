@@ -14,8 +14,8 @@
   "author": "Jeff Crouse <jeff@seethroughlab.com> (http://www.jeffish.com)",
   "license": "MIT",
   "dependencies": {
-    "async": "^1.4.2",
-    "request": "^2.63.0",
-    "serialport": "^1.7.4"
+    "async": "^2.0.0-rc.2",
+    "request": "^2.69.0",
+    "serialport": "^2.0.6"
   }
 }
